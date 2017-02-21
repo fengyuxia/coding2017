@@ -1,6 +1,5 @@
 package com.coding.basic;
 
-
 public class ArrayList implements List {
 	
 	private int size = 0;
@@ -76,7 +75,35 @@ public class ArrayList implements List {
 	private static Object[] grow(Object[] src,int size){
 //		return Arrays.copyOf(src, src.length + size);
 		Object[] target = new Object[src.length + size];
-		System.arraycopy(src, 0, target, 0, src.length + size);
+		System.arraycopy(src, 0, target, 0, src.length);
 		return target;
+	}
+	
+	public String toString(){
+		String result = "[";
+		if(this.size == 0){
+			result = result + "]";
+			return result;
+		}else{
+			for(int i =0;i < size;i++){
+				result = result + this.elementData[i] + ",";
+			}
+			result = result.substring(0,result.length()-1);
+			result = result + "]";
+			return result;
+		}
+	}
+	
+	public static void main(String[] args) {
+//		Object[] src = new Object[10];
+//		src[9] = "a";
+//		src = ArrayList.grow(src, 10);
+//		System.out.println(src[9]);
+//		System.out.println(src.length);
+		
+		ArrayList list = new ArrayList();
+		list.add("1");
+		list.add(0,"0");
+		System.out.println(list);
 	}
 }
