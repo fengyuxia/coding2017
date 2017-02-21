@@ -1,21 +1,32 @@
 package practice;
 
-//import com.coding.basic.ArrayList;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ArrayList<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<String>();
+		System.out.println("刚初始化的list的size："+list.size());
 		list.add("a");
+		list.add("2");
+		System.out.println("测试add().[a,2]");
+		System.out.println(list);
+		
 		list.add(1,"b");
 		list.add(1,"c");
-		list.add(3,"d");//-1;4报错
+		list.add(3,"d");
+		System.out.println("测试add(index,o).[a,c,b,d,2]");
+		System.out.println(list);
+		System.out.println("此时size："+list.size());
 		
+		list.add(list.size(),"e");//-1~size+1
+		System.out.println(list);
 		System.out.println(list.size());
-		System.out.println(list.get(3));
+		System.out.println(list.get(5));//-1~size
+		System.out.println(list.remove(list.size()-1));//-1~size
+		System.out.println(list);
+//		System.out.println(list.get(3));
 	}
 
 }

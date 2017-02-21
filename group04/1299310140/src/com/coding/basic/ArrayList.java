@@ -4,31 +4,28 @@ package com.coding.basic;
 public class ArrayList implements List {
 	
 	private int size = 0;
-	private Object[] elementData = new Object[100];
+	private Object[] elementData = new Object[10];
 	
 	public void add(Object o){
 		if(size < this.elementData.length){//加至末尾，size+1
 			this.elementData[size] = o;
 			size++;
 		}else{//扩张数组，然后加至末尾，size+1
-			this.elementData = grow(this.elementData,100);
+			this.elementData = grow(this.elementData,10);
 			this.elementData[size] = o;
 			size++;
 		}
 	}
 	
-	public void add(int index, Object o){
+	public void add(int index, Object o){//-1<index<size+1 or 0=<index<=size
 		if(index < 0 || index > this.size){//index小于0or大于size，参数错误
 			return;
 		}
-//		while(index >= this.elementData.length){//index应<length,否则扩张数组
-//			this.elementData = grow(this.elementData, 100);
-//		}
 		if(size >= this.elementData.length){//当前数组容量已满，需扩张
-			this.elementData = grow(this.elementData, 100);
+			this.elementData = grow(this.elementData, 10);
 		}
 		
-		//此时只需考虑将o加至index处
+		//此时只需考虑将o加至index处（0=<index<=size && size<length）
 		if(index < size){//移动数据，然后插入o，size+1
 			for(int i = size;i > index;i--){
 				this.elementData[i] = this.elementData[i-1];
@@ -42,21 +39,21 @@ public class ArrayList implements List {
 		
 	}
 	
-	public Object get(int index){
-		if(index < 0 || index >= this.size){//index小于0or大于size，参数错误
+	public Object get(int index){//-1<index<size  or 0=<index<size
+		if(index < 0 || index >= this.size){//index小于0or大于等于size，参数错误
 			return null;
 		}
 		return this.elementData[index];
 	}
 	
-	public Object remove(int index){
-		if(index < 0 || index >= this.size){//index小于0or大于size，参数错误
+	public Object remove(int index){//-1<index<size  or 0=<index<size
+		if(index < 0 || index >= this.size){//index小于0or大于等于size，参数错误
 			return null;
 		}
 		
-		Object o = this.elementData[index];
+		Object o = this.elementData[index];//o保存被移除的值
 		//此时只需考虑将index处的o移除
-		for(int i = index;i<this.size;i++){
+		for(int i = index;i < this.size-1;i++){
 			this.elementData[i] = this.elementData[i+1];
 		}
 		this.size--;
