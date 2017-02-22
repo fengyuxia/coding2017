@@ -9,21 +9,25 @@ public class TestMine {
 		LinkedList list = new LinkedList();
 		list.add("a");
 		list.add("b");
-		list.add("1");
-		System.out.println(list.get(1));
-		System.out.println(list);
-		list.add(1,"2");
-		list.add(0,"0");
-		list.add(5,"5");
-		System.out.println(list);
-		list.remove(4);
-		System.out.println(list);
-		list.addFirst("0");
-		list.addLast("9");
-		System.out.println(list);
-		System.out.println(list.removeFirst());
+		
 		System.out.println(list.removeLast());
 		System.out.println(list);
+//		list.add("b");
+//		list.add("1");
+//		System.out.println(list.get(1));
+//		System.out.println(list);
+//		list.add(1,"2");
+//		list.add(0,"0");
+//		list.add(5,"5");
+//		System.out.println(list);
+//		list.remove(4);
+//		System.out.println(list);
+//		list.addFirst("0");
+//		list.addLast("9");
+//		System.out.println(list);
+//		System.out.println(list.removeFirst());
+//		System.out.println(list.removeLast());
+//		System.out.println(list);
 		
 //		List list = new ArrayList();
 //		list.add("a");

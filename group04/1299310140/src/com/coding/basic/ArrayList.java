@@ -85,7 +85,7 @@ public class ArrayList implements List {
 			result = result + "]";
 			return result;
 		}else{
-			for(int i =0;i < size;i++){
+			for(int i = 0;i < size;i++){
 				result = result + this.elementData[i] + ",";
 			}
 			result = result.substring(0,result.length()-1);
@@ -104,6 +104,7 @@ public class ArrayList implements List {
 		ArrayList list = new ArrayList();
 		list.add("1");
 		list.add(0,"0");
+		list.add(1,"2");
 		System.out.println(list);
 	}
 }

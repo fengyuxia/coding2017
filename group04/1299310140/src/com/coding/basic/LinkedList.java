@@ -24,12 +24,14 @@ public class LinkedList implements List {
 		if(index < 0 || index > this.size){//index小于0or大于size，参数错误
 			return;
 		}
-		if(index == 0){
+		if(index == 0){//将o加至链表头部
+			//size为0时，index必为0，执行该分支
 			Node first = new Node(o);
 			first.next = this.head;
 			this.head = first;
 			size++;
 		}else if(index == size){//将o加至链表末尾
+			//index == size时，执行该分支
 			Node Last = new Node(o);
 			Node pres = this.head;
 			while(pres.next != null){
@@ -38,6 +40,7 @@ public class LinkedList implements List {
 			pres.next = Last;
 			size++;
 		}else{
+			//0<index<size时，执行该分支
 			Node pres = this.head;//pres指向0
 			for(int i = 0;i < index-1;i++){
 				pres = pres.next;
@@ -56,10 +59,11 @@ public class LinkedList implements List {
 			return null;
 		}
 		
-		Node pres = this.head;
+		Node pres = this.head;//pres指向0
 		for(int i = 0;i < index;i++){
 			pres = pres.next;
 		}
+		//此时pres指向index
 		return pres.data;
 	}
 	
@@ -73,7 +77,7 @@ public class LinkedList implements List {
 			o = this.head.data;
 			this.head = this.head.next;
 			size--;
-		}else{
+		}else{//删除头节点以外的其他节点
 			Node pres = this.head;//pres指向0
 			for(int i = 0;i < index-1;i++){
 				pres = pres.next;
@@ -91,14 +95,14 @@ public class LinkedList implements List {
 		return this.size;
 	}
 	
-	public void addFirst(Object o){
+	public void addFirst(Object o){//同add(int 0 , Object o)
 		Node first = new Node(o);
 		first.next = this.head;
 		this.head = first;
 		size++;
 	}
 	
-	public void addLast(Object o){
+	public void addLast(Object o){//同add(int size , Object o)
 		Node Last = new Node(o);
 		Node pres = this.head;
 		while(pres.next != null){
@@ -108,7 +112,11 @@ public class LinkedList implements List {
 		size++;
 	}
 	
-	public Object removeFirst(){
+	public Object removeFirst(){//同remove(int 0)
+		if(this.size == 0){
+			return null;
+		}
+		
 		Object o = this.head.data;
 		this.head = this.head.next;
 		size--;
@@ -116,14 +124,24 @@ public class LinkedList implements List {
 	}
 	
 	public Object removeLast(){
-		Object o = null;
-		Node pres = this.head;
-		while(pres.next.next != null){
-			pres = pres.next;
+		if(this.size == 0){
+			return null;
 		}
-		o = pres.next.data;
-		pres.next = null;
-		size--;
+		
+		Object o = null;
+		if(this.size == 1){//size==1
+			o = this.head.data;
+			this.head = null;
+			this.size--;
+		}else{//size>=2
+			Node pres = this.head;
+			while(pres.next.next != null){
+				pres = pres.next;
+			}
+			o = pres.next.data;
+			pres.next = null;
+			size--;
+		}
 		return o;
 	}
 	
