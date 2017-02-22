@@ -94,17 +94,4 @@ public class ArrayList implements List {
 		}
 	}
 	
-	public static void main(String[] args) {
-//		Object[] src = new Object[10];
-//		src[9] = "a";
-//		src = ArrayList.grow(src, 10);
-//		System.out.println(src[9]);
-//		System.out.println(src.length);
-		
-		ArrayList list = new ArrayList();
-		list.add("1");
-		list.add(0,"0");
-		list.add(1,"2");
-		System.out.println(list);
-	}
 }
