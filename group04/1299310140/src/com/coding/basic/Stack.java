@@ -3,20 +3,32 @@ package com.coding.basic;
 public class Stack {
 	private ArrayList elementData = new ArrayList();
 	
-	public void push(Object o){		
+	public void push(Object o){
+		this.elementData.add(o);
 	}
 	
 	public Object pop(){
-		return null;
+		return this.elementData.remove(this.elementData.size()-1);
 	}
 	
 	public Object peek(){
-		return null;
+		return this.elementData.get(this.elementData.size()-1);
 	}
+	
 	public boolean isEmpty(){
-		return false;
+		if(this.elementData.size() == 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
+	
 	public int size(){
-		return -1;
+		return this.elementData.size();
 	}
+	
+	public String toString(){
+		return this.elementData.toString();
+	}
+	
 }

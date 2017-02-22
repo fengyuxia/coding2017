@@ -1,19 +1,29 @@
 package com.coding.basic;
 
 public class Queue {
+	private LinkedList elementData = new LinkedList();
 	
-	public void enQueue(Object o){		
+	public void enQueue(Object o){
+		this.elementData.addLast(o);
 	}
 	
 	public Object deQueue(){
-		return null;
+		return this.elementData.removeFirst();
 	}
 	
 	public boolean isEmpty(){
-		return false;
+		if(this.elementData.size() == 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	public int size(){
-		return -1;
+		return this.elementData.size();
+	}
+	
+	public String toString(){
+		return this.elementData.toString();
 	}
 }

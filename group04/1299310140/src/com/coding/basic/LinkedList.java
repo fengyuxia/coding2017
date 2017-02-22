@@ -31,7 +31,7 @@ public class LinkedList implements List {
 			this.head = first;
 			size++;
 		}else if(index == size){//将o加至链表末尾
-			//index == size时，执行该分支
+			//index == size != 0时，执行该分支
 			Node Last = new Node(o);
 			Node pres = this.head;
 			while(pres.next != null){
@@ -103,13 +103,18 @@ public class LinkedList implements List {
 	}
 	
 	public void addLast(Object o){//同add(int size , Object o)
-		Node Last = new Node(o);
-		Node pres = this.head;
-		while(pres.next != null){
-			pres = pres.next;
+		if(this.size == 0){
+			this.head = new Node(o);
+			size++;
+		}else{//size>=1
+			Node Last = new Node(o);
+			Node pres = this.head;
+			while(pres.next != null){
+				pres = pres.next;
+			}
+			pres.next = Last;
+			size++;
 		}
-		pres.next = Last;
-		size++;
 	}
 	
 	public Object removeFirst(){//同remove(int 0)

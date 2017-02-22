@@ -1,17 +1,55 @@
 package practice;
 
-import com.coding.basic.LinkedList;
-import com.coding.basic.List;
+import com.coding.basic.Stack;
 
 public class TestMine {
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
-		list.add("a");
-		list.add("b");
-		
-		System.out.println(list.removeLast());
-		System.out.println(list);
+		Stack stack = new Stack();
+		System.out.println(stack.pop());
+		System.out.println(stack);
+//		Queue queue = new Queue();
+//		System.out.println(queue.deQueue());
+//		System.out.println(queue.isEmpty());
+//		queue.enQueue(1);
+//		System.out.println(queue.isEmpty());
+//		queue.enQueue(2);
+//		System.out.println(queue);
+//		System.out.println(queue.size());
+//		System.out.println(queue.deQueue());
+//		System.out.println(queue.deQueue());
+//		System.out.println(queue.deQueue());
+//		System.out.println(queue);
+//		System.out.println(queue.size());
+//		Stack stack = new Stack();
+//		System.out.println(stack.isEmpty());
+//		stack.push(1);
+//		System.out.println(stack.isEmpty());
+//		System.out.println(stack.peek());
+//		stack.push(2);
+//		stack.push(3);
+//		stack.push(4);
+//		stack.push(5);
+//		stack.push(6);
+//		stack.push(7);
+//		stack.push(8);
+//		stack.push(9);
+//		stack.push(10);
+//		stack.push(11);
+//		System.out.println(stack.peek());
+//		System.out.println(stack.pop());
+//		System.out.println(stack.pop());
+//		System.out.println(stack.peek());
+//		System.out.println(stack.size());
+//		LinkedList list = new LinkedList();
+////		list.addFirst(2);
+//		list.addLast(1);
+//		System.out.println(list);
+//		list.add("a");
+//		list.add("b");
+//		
+//		System.out.println(list.removeLast());
+//		System.out.println(list);
 //		list.add("b");
 //		list.add("1");
 //		System.out.println(list.get(1));
